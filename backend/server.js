@@ -27,8 +27,12 @@ app.get("/", (req, res) => {
 });
 
 
-
+app.use("/api/projects", projectRoutes);
+app.get("/test", (req, res) => {
+    res.json({
+        message: "API working"
+    });
+});
 app.listen(PORT, () => {
     console.log("Server running on port " + PORT);
 });
-app.use("/api/projects", projectRoutes);
