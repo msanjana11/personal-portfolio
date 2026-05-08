@@ -10,19 +10,21 @@ async function loadProjects() {
 
     projects.forEach(project => {
 
-        projectContainer.innerHTML += `
-            <div class="project-card">
+       projectContainer.innerHTML += `
+    <div class="project-card">
 
-                <a href="${project.githubLink}" target="_blank">
-                     GitHub
-                </a>
+       
 
-                <a href="${project.liveLink}" target="_blank">
-                     Live
-                </a>
+        <a href="${project.githubLink}" target="_blank">
+            GitHub
+        </a>
 
-            </div>
-        `;
+        <a href="${project.liveLink}" target="_blank">
+            Live
+        </a>
+
+    </div>
+`;
     });
 }
 
