@@ -1,41 +1,29 @@
-const projects = [
-
-    {
-        title:"Agri Connect",
-        description:"Platform connecting farmers for buying, selling and exchanging agricultural products."
-    },
-
-    
-
-    {
-        title:"MSME Idea Hackathon 5.0",
-        description:"Participated in national level innovation and startup hackathon."
-    },
-
-    {
-        title:"Startup Hackathon - SKCET",
-        description:"Participated in hackathon focused on startup ideas and problem solving."
-    },
-
-    {
-        title:"U and Me State Level Hackathon",
-        description:"Collaborated with team members to develop innovative technical solutions."
-    }
-
-];
+const API_URL = "http://localhost:5000/api/projects";
 
 const projectContainer = document.getElementById("projects");
 
-projects.forEach(project => {
+async function loadProjects() {
+    const res = await fetch(API_URL);
+    const projects = await res.json();
 
-    projectContainer.innerHTML += `
+    projectContainer.innerHTML = "";
 
-        <div class="project-card">
+    projects.forEach(project => {
 
-            <h3>${project.title}</h3>
+        projectContainer.innerHTML += `
+            <div class="project-card">
 
-            <p>${project.description}</p>
+                <a href="${project.githubLink}" target="_blank">
+                     GitHub
+                </a>
 
-        </div>
-    `;
-});
+                <a href="${project.liveLink}" target="_blank">
+                     Live
+                </a>
+
+            </div>
+        `;
+    });
+}
+
+loadProjects();
