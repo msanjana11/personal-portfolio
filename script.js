@@ -1,4 +1,4 @@
-const API_URL = "https://portfolio-backend-kkwj.onrender.com";
+const API_URL = "https://portfolio-backend-kkwj.onrender.com/api/projects";
 
 const projectContainer = document.getElementById("projects");
 
